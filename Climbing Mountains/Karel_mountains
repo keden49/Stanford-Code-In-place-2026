@@ -24,7 +24,7 @@ def step_up():
     move()
     turn_right()
     move()
-
+s
 def plant_flag():
     # a beeper, the national flag of karel land
     put_beeper()
