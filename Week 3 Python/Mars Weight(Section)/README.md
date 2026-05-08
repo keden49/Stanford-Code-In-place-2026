@@ -1,6 +1,6 @@
 # Problem: Planetary Weight Calculator  
 
-** Milestone 1: Mars Weight **
+**Milestone 1: Mars Weight**
 
 A few years ago, NASA made history with the first controlled flight on another planet. Its latest Mars Rover, Perseverance, has onboard a 50cm high helicopter called Ingenuity. Ingenuity made its third flight, during which it flew faster and further than it had on any of its test flights on Earth. Interestingly, Ingenuity uses Python for some of its flight modeling software
 
