@@ -1,6 +1,6 @@
 """
 Prompts the user for a weight on Earth
-and prints the equivalent weight on Mars.
+and prints the equivalent weight on any planet.
 """
 mars_constant = 0.378
 Mercury = 37.6 / 100
