@@ -304,7 +304,7 @@ def human(prev_opponent_play,competitor,opponent_history = [],history = ["R"],hi
 '''
 random player uses no stratergy to defeat opponent 
 '''
-def random_player(prev_opponent_play):
+def preeti(prev_opponent_play):
 
     return random.choice(['R', 'P', 'S'])
 

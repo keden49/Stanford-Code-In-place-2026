@@ -1,5 +1,5 @@
 # This entrypoint file to be used in development. Start by reading README.md
-from RPS_game import play, brahm, juliette, mehran, chris, human, random_player
+from RPS_game import play, brahm, juliette, mehran, chris, human, preeti
 from RPS import mudabbir
 
 
@@ -8,9 +8,9 @@ print()
 competitor = input("Who do you want to play against? ").lower()
 
 # validate user inputs 
-while competitor not in ["chris", "mehran", "brahm", "juliette", "mudabbir", "random"]:
+while competitor not in ["chris", "mehran", "brahm", "juliette", "mudabbir", "preeti"]:
 
-     competitor = input("Enter a choice among [chris, mehran, brahm, juliette, mudabbir, random]: ")
+     competitor = input("Enter a choice among [chris, mehran, brahm, juliette, mudabbir, preeti]: ")
 print()
 num_games = input("How many Rounds Do you wish to play? ")
 
@@ -43,7 +43,7 @@ elif competitor == 'mudabbir':
 
 else:
      
-     play(human, random_player, num_games,competitor, user,verbose=True)
+     play(human, preeti, num_games,competitor, user,verbose=True)
     
 
 
