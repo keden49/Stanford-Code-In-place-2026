@@ -1,94 +1,300 @@
-# RPS: Beat Them At Their Own Game
-## Project Description 
+# Rock Paper Scissors
 
-This project was inspired by the Rock Paper scissors challenge by freecodecamp which was one of my final projects in the Machine Learning with Python Curriculum. In this original project, the objective was to develop a Rock, Paper, Scissors program capable of competing against multiple predefined algorithms. To successfully complete the challenge, the program needed to achieve a win rate of at least 60% against each of four different opponent algorithms.
+Welcome!
+
+At its core, Rock, Paper, Scissors is a blind game. You never know what your opponent is about to play, and they never know what you are about to play. Every decision is made with incomplete information, winning is determined on the spot. This project builds on that idea by introducing opponents/bots that follow different strategies. Some are simple and predictable. Others adapt to your behavior and look for patterns in your move decisions.
+
+Rules
+- Enter R for Rock
+- Enter P for Paper
+- Enter S for Scissors
+
+The standard rules apply:
+
+- Rock beats Scissors
+- Scissors beats Paper
+- Paper beats Rock
+
+Your the first player! Read about your opponents below and get familiar with how they work. Goodluck! I hope you enjoy the game.
+
+---
+
+## How to Play
+
+1. Enable **Caps Lock**. The game only accepts uppercase inputs:
+   - `R` for Rock
+   - `P` for Paper
+   - `S` for Scissors
+
+2. Select an opponent.
+
+3. Choose the number of rounds you would like to play.
+
+4. Decide whether to enable hints. Hints explain how each algorithm makes decisions, while playing without them challenges you to uncover those strategies on your own.(I reccomend this option)
+---
+
+## Opponents
+
+The algorithms are named after the professors, section leaders, and peers who contributed to my learning journey through Stanford's Code in Place.
+
+### Preeti (Easy)
+
+Plays completely at random.
+
+There is no underlying strategy to uncover, making this the most unpredictable opponent despite being the simplest.
+
+### Brahm (Easy)
+
+Follows a repeating sequence of moves and ignores your actions entirely.
+
+Success depends on identifying the pattern and anticipating the next move in the cycle.
+
+**NB**: To understand Brahm stratergy play a minimal of 10 rounds
+
+### Chris (Medium)
+
+Chris always plays the counter to your last move
+
+**Example**
+```
+Current Score {'Fathela': 2, 'chris': 0, 'tie': 0}
+
+💡 Counters: R ➔ S | P ➔ R | S ➔ P (➔ = Beats)
+
+Your Last move was P
+To win you must counter the counter move to P which is S
+[R]ock, [P]aper, [S]cissors? R
+```
+
+*In the example above, I chose to play **Rock** as Chris expects me to repeat **Paper**, so he will be  playing **Scissors** to counter it. Knowing this, I can counter his counter by playing **Rock**, which beats Scissors.*
+
+### Mehran (Medium)
+
+Tracks your recent moves and looks for the move you play most frequently and tries to counter it. If your habits become predictable, Mehran will quickly adapt to them.
+
+**Example**
+
+**Without Hint**
+
+```
+Current Score {'Fathela': 1, 'mehran': 0, 'tie': 0}
+
+💡 Counters: R ➔ S | P ➔ R | S ➔ P (➔ = Beats)
+
+Your most frequent move is currently R
+To win you must counter Mehran's counter move to R
+
+[R]ock, [P]aper, [S]cissors? S
+```
+
+**With Hint**
+
+```
+Current Score {'Fathela': 1, 'mehran': 0, 'tie': 0}
+
+💡 Counters: R ➔ S | P ➔ R | S ➔ P (➔ = Beats)
+
+Shhh ... 🤫 This is a secret hint
+Mehran expects you to play R next
+To win you must counter his own counter move which is P
+
+[R]ock, [P]aper, [S]cissors? S
+```
 
 
-I took that idea and decided to create an extra bot algorithm which uses a more sophisticated stratergy to defeat its opponents while also giving others the prvildege to interact with the original algorithms. 
-
-In this project the algorithm uses a 4 window Markov chain to counter an opponent, this algorithm takes into assumption that humans are very repetitive and thus predictable. it Keeps count of last 4 moves and makes a prediction based on the dequence the opponent likes to take ......
-
-At the end of the program the user is given their own play patterns and opponets history to understand the players logic 
+*In both examples, I chose **Scissors**. Mehran's strategy is to identify my most frequent move, which is currently **Rock**, and play its counter, **Paper**. Knowing this, I can anticipate his move and play **Scissors**, which beats Paper.*
 
 
-# Keep in mind the players Algorithm doesn't change what changes is you .....
 
-The user should be asked how many number of games they wish to play
-the game should dispalay the champion with a trophy 
-if player loses ther is an encouragement message 
-the algorithms including mine should have proffesors names
-my final algorithm should have my section leader name for he was smart
-explain the rules to players regarding how to play 
-instruct palyers to have caps lock on 
-explain in agame o rps you never see opponets stratergy rather know what they are going to play 
-its a blind game 
-but you can always study opponets moves 
-and understand their stratergy 
-provide a list where players can choose opponets and call the neccesary opponent 
-dont make the game tooo complicated
-Add current score board 
-As the game progresses
+### Juliette (Hard)
 
-Are you confident in your Rock Paper Scissors skills ?
-You can put them to the test by playing against different bots who use different strategies defat you
+Tracks combinations of consecutive moves, and keeps their count, and uses those patterns to predict what you are likely to play next. The more consistent your behavior becomes, the more accurate her predictions become.
 
-Introducing the bots 
+**Example**
 
-I decided to name the bots after professors and section leaders and mates  who took us through code in place to make the lessons more palatable/ familiar 
-
-1. Chris - always counters your last move eg 
-...
-2. Mehran - always counters you with your most frequent move from your last 10 rounds 
-3. Brahm - uses a repeating sequence and never changes 
-4. Juliette - very smart, keeps count of your moves in pairs and makes a prediction based on the most frequent
-5. Mudabbir - like juliette, mudabbir also keeps count but in groups of keeps count of every possible combination of moves - hardest bot to beat 
-
-6. Preeti - random stratergy , should be the easist bot to beat though, she can win through luck 
+**Without Hint**
 
 
-To discover patterns and uncover players stratergy you can always check opponents history which contain past moves studying them gives you time to predict next move
+```
+Current Score {'Fathela': 1, 'juliette': 0, 'tie': 0}
 
-To understand Juliette one must analyze her move tracker and counter her by checking whats most frequent and countering the last move for 
-example 
+💡 Counters: R ➔ S | P ➔ R | S ➔ P (➔ = Beats)
 
-note that when all possible next moves have the same frequency it always counters "R" meaning it plays "P"
+Your most frequent pair of moves is SR
+Tracker: Juliette noticed your frequent pair 'SR'.
+She's preparing her next move based on the end of that sequence. Choose wisely.
 
-if Juliette You will be given their current tracker 
-analyze what you played last , find out all posibilities your last move could take which is 
-move plus each possible move 
-meaning if it is P 
-possible next moves are PR, PP, PS and if R RR,RP,RS and if S SR,SS,SP
+[R]ock, [P]aper, [S]cissors? S
+```
 
-look at your most frequent pair. Juliette will ost likely be countering that. So for you to effectively counter Juliette You must counter the counter of juliette 
+**With Hint**
 
-The same applies to mahren
+```
+Current Score {'Fathela': 1, 'juliette': 0, 'tie': 0}
 
-To win this game you must think like your player 
-you must embody the mind of the player 
+💡 Counters: R ➔ S | P ➔ R | S ➔ P (➔ = Beats)
 
+Your most frequent pair of moves is SR
+Hint: Juliette predicts you will play 'R'.
+She's planning to play 'P' to beat it.
+What will you play to counter her?
 
-For mehran you will be given your most frequent move it will be up to you to figure out the most appropriate counter
+[R]ock, [P]aper, [S]cissors? S
+```
 
-for brahm look for a sequence of repeating patterns do you notice one 
-
-
-To counter Muddabir 
-
-
-when Mudabbir is in random mode it means he hasnt formed any coherent sequence to understnad how you play in this case Mudabbir plays Randomly without any stratergy in order to figure you out 
-
-after four rounds coherent patterns will start forming 
-
-To play effectively put caps lock on 
-
-Minimum Number of games
+*In both examples, I chose **Scissors**. Juliette analyzes pairs of consecutive moves and uses them to predict what I am likely to play next. In this case, the pair **SR** appears most frequently in my history, leading her to predict that my next move will be **Rock**. To counter that prediction, she plans to play **Paper**. Knowing this, I can anticipate her response and play **Scissors**, which beats Paper.*
 
 
-This game utilizes dictionaries, lists decomposition of functions ...manipulation of variables 
+### Mudabbir (Expert)
 
-The game is blind so you you never know what they are about to play but the only thing you know is their stratergy
-you can optionally choose to have hint
+A custom algorithm based on a four-step Markov chain.
 
-in project description caution the user to read the readme first to familiarize with the opponents and how the game goes 
+Rather than focusing on individual moves, Mudabbir analyzes longer sequences and searches for recurring patterns in your play history. The opening rounds are used to collect information before predictions begin.
 
-talk about inspirations of the project 
+**Example**
+
+**Random Mode**
+
+```
+Current Score {'Fathela': 1, 'mudabbir': 1, 'tie': 2}
+
+💡 Counters: R ➔ S | P ➔ R | S ➔ P (➔ = Beats)
+
+Your most frequent sequence is SRSR
+Hint: Mudabbir expects your sequence to end with 'R'.
+He's getting ready to play 'P'.
+What's your counter move?
+
+[R]ock, [P]aper, [S]cissors? S
+```
+
+*When Mudabbir is in random mode it means, the number of rounds played are not enough for the bot to form coherent algorithms for it to base its predictions. Hence it plays random moves*
+
+**Without Hint**
+
+```
+Current Score {'Fathela': 2, 'mudabbir': 0, 'tie': 1}
+
+💡 Counters: R ➔ S | P ➔ R | S ➔ P (➔ = Beats)
+
+Your most frequent sequence is SPRR
+Tracker: Mudabbir is tracking your recent sequence 'SPRR'.
+He's targeting the final move of that pattern. Choose your counter.
+
+[R]ock, [P]aper, [S]cissors? S
+
+```
+
+
+**With Hint**
+
+```
+Current Score {'Fathela': 1, 'mudabbir': 1, 'tie': 2}
+
+💡 Counters: R ➔ S | P ➔ R | S ➔ P (➔ = Beats)
+
+Your most frequent sequence is SRSR
+Hint: Mudabbir expects your sequence to end with 'R'.
+He's getting ready to play 'P'.
+What's your counter move?
+
+[R]ock, [P]aper, [S]cissors? S
+
+
+**NB**: To understand Mudabbir's stratergy play a minimal of 20 rounds
+```
+
+*In both examples, I chose **Scissors**. Mudabbir tracks recurring sequences of four moves and learns which moves tend to follow them. In the first example, the sequence **SPRR** appears frequently in my history. Since the sequence ends with **Rock**, Mudabbir expects Rock to be the most likely outcome and prepares **Paper** to counter it. Anticipating this, I play **Scissors**, which beats Paper.*
+
+**Note**: For the best experience, play at least 20 rounds to allow meaningful patterns to emerge.
+
+
+
+---
+
+## Understanding the Hints
+
+The game includes an optional hint system that reveals what information an algorithm is currently using to make decisions.
+
+If hints are disabled, the terminal provides only the raw data available to the algorithm, leaving it up to you to interpret what it means.
+
+### Example
+
+```text
+Current Score {'Player': 2, 'mudabbir': 0, 'tie': 1}
+
+Counters: R -> S | P -> R | S -> P
+
+Tracker: Mudabbir is tracking your recent sequence 'RRPR'.
+He's targeting the final move of that pattern.
+
+[R]ock, [P]aper, [S]cissors?
+```
+
+In this example, the algorithm has identified a sequence in your recent history and is using it to predict your next move. The challenge is to determine what it expects and respond accordingly.
+
+---
+
+## Closing Thoughts
+
+This project is ultimately less about Rock, Paper, Scissors and more about patterns.
+Every algorithm in this game follows a set of rules. Some are obvious, some are subtle, and some require a bit of experimentation to uncover. Winning consistently comes from understanding those rules and adapting your decisions around them.
+
+The same idea appears throughout machine learning, where models learn from patterns in data and make predictions based on what they have observed before.
+
+This project simply turns that process into a game.
+
+## Running The Game 
+
+### Prerequisites
+
+Before running the game, make sure you have:
+
+- Python 3 installed
+- Visual Studio Code (recommended)
+
+
+### Step 1: Download the Repository
+
+Clone the repository:
+
+```bash
+git clone https://github.com/keden49/Stanford-Code-In-place-2026.git
+```
+
+Or:
+
+1. Click the green **Code** button.
+2. Select **Download ZIP**.
+3. Extract the ZIP file.
+
+### Step 2: Open the Repository
+
+Open the downloaded repository in Visual Studio Code.
+
+### Step 3: Navigate to the Project
+
+In the VS Code file explorer, open:
+
+```text
+Final Project/
+└── Rock Paper Scissors/
+    └── main.py
+```
+
+### Step 4: Run the Game
+
+Open `main.py` and click the **Run Python File** button (▶) in the top-right corner of VS Code.
+
+Alternatively:
+
+1. Right-click anywhere inside `main.py`.
+2. Select **Run Python File in Terminal**.
+
+The game will start automatically.
+
+
+### Why Run It This Way?
+
+The project is organized into multiple Python files that import functionality from one another. Running the game from the repository root ensures that all modules can be located correctly.
+
